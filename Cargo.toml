@@ -1,21 +1,21 @@
 [package]
-name = "rpatchur"
+name = "enyxsis-patcher"
 version = "0.1.0"
-authors = ["LinkZ <wanthost@gmail.com>"]
+authors = ["Bryan Veloso <bryan@avalonstar.com>", "LinkZ <wanthost@gmail.com>"]
 edition = "2018"
 build = "build.rs"
 
 [package.metadata.winres]
-FileDescription = "A customizable patcher for Ragnarok Online"
-ProductName = "RPatchur"
-ProductVersion = "0.1.0"
+FileDescription = "A patcher for Enyxsis Ragnarok Online, powered by rpatchur."
+ProductName = "Enyxsis Patcher"
+ProductVersion = "0.2"
 LegalCopyright = "Copyright © 2020 rpatchur developers"
 
 [profile.release]
 lto = true
 
 [target.'cfg(windows)'.build-dependencies]
-winres = "0.1"
+winres = "0.2"
 
 [dependencies]
 web-view = { version = "0.6.3", features = ["edge"] }

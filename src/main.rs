@@ -53,7 +53,7 @@ fn main() {
         None => return,
     };
     let webview = web_view::builder()
-        .title("RPatchur")
+        .title("Enyxsis Patcher")
         .content(Content::Url(config.web.index_url.clone()))
         .size(config.window.width, config.window.height)
         .resizable(config.window.resizable)
