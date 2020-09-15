@@ -15,6 +15,7 @@ use std::io::SeekFrom;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::thread;
+use std::time::Duration;
 
 use config::{parse_configuration, PatcherConfiguration};
 use log::{error, info, trace, warn};
@@ -156,6 +157,11 @@ fn spawn_patching_thread(
     config: PatcherConfiguration,
 ) -> thread::JoinHandle<()> {
     thread::spawn(move || {
+        // Force the thread to sleep for a few seconds so we're not
+        // sending messages that the webpage can't reply to.
+        trace!("Wait for web-view before starting patching thread.");
+        thread::sleep(Duration::from_secs(2));
+
         trace!("Patching thread started.");
         let report_error = |err_msg| {
             error!("{}", err_msg);
