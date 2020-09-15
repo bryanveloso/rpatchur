@@ -95,7 +95,10 @@ fn handle_play(webview: &mut WebView<PatcherConfiguration>) {
     if cfg!(target_os = "windows") {
         #[cfg(windows)]
         match windows::spawn_elevated_win32_process(client_exe, client_argument) {
-            Ok(_) => trace!("Client started."),
+            Ok(_) => { 
+                trace!("Client started.");
+                webview.exit();
+            },
             Err(e) => {
                 warn!("Failed to start client: {}", e);
             }
