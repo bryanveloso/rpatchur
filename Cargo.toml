@@ -15,7 +15,7 @@ LegalCopyright = "Copyright © 2020 rpatchur developers"
 lto = true
 
 [target.'cfg(windows)'.build-dependencies]
-winres = "0.2"
+winres = "0.1"
 
 [dependencies]
 web-view = { version = "0.6.3", features = ["edge"] }
